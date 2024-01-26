@@ -9,7 +9,10 @@ import moon from "../assets/sidenav/moon.svg";
 import arrowright from "../assets/sidenav/arrowright.svg";
 import settings from "../assets/sidenav/settings.svg";
 import logout from "../assets/sidenav/logout.svg";
-// import moon from "../assets/sidenav/moon.svg"
+import calender from "../assets/topnav/calender.svg";
+import bell from "../assets/topnav/bell.svg";
+import avatar from "../assets/topnav/avatar.png";
+import chevron from "../assets/topnav/chevron.svg";
 
 export const navicons = [
   { icon: logo, name: "Logo" },
@@ -30,3 +33,10 @@ export const controlicons = [
   { icon: settings, name: "Settings" },
   { icon: logout, name: "Logout" },
 ];
+
+export const topnavIcons = {
+  calender,
+  bell,
+  avatar,
+  chevron,
+};

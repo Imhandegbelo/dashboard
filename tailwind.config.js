@@ -7,6 +7,9 @@ export default {
         Inter: ["Inter", "sans-serif"],
         "plus-jakarta-sans": ["Plus Jakarta Sans", "sans-serif"],
       },
+      backgroundImage: {
+        search: 'url("../src/assets/topnav/search.svg")',
+      }
     },
   },
   plugins: [],
