@@ -1,10 +1,11 @@
-import { useState } from "react";
 import Sidenav from "./components/Sidenav";
 import Topnav from "./components/Topnav";
 import { orders } from "./data/tabledata";
 import { platforms } from "./data/platforms";
 import OrderTable from "./components/OrderTable";
 import TopPlatforms from "./components/TopPlatforms";
+import SalesTrend from "./components/SalesTrend";
+import Insight from "./components/Insight";
 
 function App() {
   return (
@@ -16,19 +17,23 @@ function App() {
         <div className="w-[calc(100% - 80px)]/ w-full ml-20 flex flex-col">
           <Topnav />
           <div className="flex flex-col gap-5 p-5 font-plus-jakarta-sans">
-            <div className="h-[374px] bg-white rounded-xl">
-              <div className=""></div>
-              <div className="grid gridp-4/16px"></div>
+            <div className="flex gap-5 h-[374px]">
+              <div className="w-3/5 p-5 bg-white rounded-xl h-full border border-[#EDF2F7]">
+                <SalesTrend />
+              </div>
+              <div className="w-2/5">
+                <Insight />
+              </div>
             </div>
             <div className="flex gap-5 h-[374px]">
-              <div className="w-3/5 bg-white p-5 rounded-xl">
+              <div className="w-3/5 bg-white p-5 rounded-xl border border-[#EDF2F7]">
                 <div
                   className="flex justify-between font-semibold"
                   aria-label="Table of recent orders"
                 >
-                  <h3 className="text-[#26282C]">Last Orders</h3>
+                  <h3 className="text-[#26282C] text-lg">Last Orders</h3>
                   <button
-                    className="text-[#34CAA5] text-md hover:underline"
+                    className="text-[#34CAA5] text-lg hover:underline"
                     aria-label="See all orders"
                   >
                     See All
@@ -36,22 +41,21 @@ function App() {
                 </div>
                 <OrderTable orders={orders} />
               </div>
-              <div className="w-2/5 bg-white rounded-xl">
+              <div className="w-2/5 bg-white rounded-xl overflow-y-scroll">
                 <div
-                  className="flex justify-between font-semibold mb-5 p-5"
+                  className="flex justify-between text-lg font-semibold px-5 pt-5"
                   aria-label="Table of recent orders"
                 >
                   <h3 className="text-[#26282C]">Top Platforms</h3>
                   <button
-                    className="text-[#34CAA5] text-md hover:underline"
+                    className="text-[#34CAA5] hover:underline"
                     aria-label="See all top platforms"
                   >
                     See All
                   </button>
                 </div>
-                <div className="overflow-y-scroll h-fit h-72 overflow-y-auto p-5">
-
-                <TopPlatforms platforms={platforms} />
+                <div className="h-fit h-72 overflow-y-auto p-5">
+                  <TopPlatforms platforms={platforms} />
                 </div>
               </div>
             </div>

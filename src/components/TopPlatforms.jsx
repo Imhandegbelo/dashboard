@@ -1,19 +1,15 @@
-import React from "react";
+import Progress from "./Progress";
 
 export default function TopPlatforms({ platforms }) {
   return (
     <div className="flex flex-col gap-5">
       {platforms.map((platform) => (
         <div key={platform.name} className="flex flex-col gap-2 w-full">
-          <h3 className="text-md font-semibold">{platform.name}</h3>
-          <progress
-            value={platform.size}
-            max="100"
-            className={`progress-unfilled:bg-[#F2F2F2] progress-filled:rounded-full progress-unfilled:rounded-full progress-filled:bg-[${platform.colour}] w-full h-[12px]`}
-          ></progress>
+          <h3 className="text-lg font-semibold">{platform.name}</h3>
+          <Progress value={platform.size} color={platform.color} />
           <div className="flex justify-between text-[#525252]">
-            <p className="text-md">{platform.price}</p>
-            <p className="text-md">+{platform.growth}%</p>
+            <p className="text-lg">{platform.price}</p>
+            <p className="text-lg">+{platform.growth}%</p>
           </div>
         </div>
       ))}

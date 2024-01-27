@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-import plugin from 'tailwindcss/plugin';
+// import plugin from 'tailwindcss/plugin';
 
 
 export default {
@@ -16,13 +16,13 @@ export default {
     },
   },
   plugins: [
-    plugin(function ({ addVariant }) {
-      addVariant("progress-unfilled", ["&::-webkit-progress-bar", "&"]);
-      addVariant("progress-filled", [
-        "&::-webkit-progress-value",
-        "&::-moz-progress-bar",
-        "&",
-      ]);
-    }),
+    // plugin(function ({ addVariant }) {
+    //   addVariant("progress-unfilled", ["&::-webkit-progress-bar", "&"]);
+    //   addVariant("progress-filled", [
+    //     "&::-webkit-progress-value",
+    //     "&::-moz-progress-bar",
+    //     "&",
+    //   ]);
+    // }),
   ],
 };
