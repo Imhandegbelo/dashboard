@@ -26,12 +26,12 @@ export default function Sidenav() {
           {themeicons.map((icon) => (
             <li
               key={icon.name}
-              className="mx-auto p-1 rounded-full bg-[#34CAA5]"
+              className="mx-auto"
               title={icon.name}
             >
-              <a href="#">
+              <button onClick={""} className="p-1 rounded-full bg-[#34CAA5]">
                 <img src={icon.icon} alt="" className="w-6" />
-              </a>
+              </button>
             </li>
           ))}
         </ul>

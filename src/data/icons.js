@@ -6,6 +6,8 @@ import box from "../assets/sidenav/box.svg";
 import info from "../assets/sidenav/info.svg";
 import sun from "../assets/sidenav/sun.svg";
 import moon from "../assets/sidenav/moon.svg";
+import sun_w from "../assets/sidenav/sun_w.svg";
+import moon_w from "../assets/sidenav/moon_w.svg";
 import arrowright from "../assets/sidenav/arrowright.svg";
 import settings from "../assets/sidenav/settings.svg";
 import logout from "../assets/sidenav/logout.svg";
@@ -24,8 +26,8 @@ export const navicons = [
 ];
 
 export const themeicons = [
-  { icon: sun, name: "Light" },
-  { icon: moon, name: "Dark" },
+  { icon: sun, active: sun_w, name: "Light" },
+  { icon: moon, active: moon_w, name: "Dark" },
 ];
 
 export const controlicons = [
