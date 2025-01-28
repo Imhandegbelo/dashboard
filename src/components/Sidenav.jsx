@@ -1,11 +1,20 @@
-// import logo from "../assets/sidenav/logo.svg";
+import { useContext, useState } from "react";
 import { navicons, themeicons, controlicons } from "../data/icons";
+import Switcher from "./Switcher";
+import { MyContext } from "../hooks/MyContext";
 
-export default function Sidenav() {
+export default function Sidenav({ onThemeChange, isDark }) {
+  
+  // const theme = useContext(MyContext)
+
   return (
-    <nav className="flex flex-col w-full justify-between py-6 h-full">
-      <div>
-        <ul className="flex flex-col gap-8 mb-8">
+    <nav
+      className={`flex flex-col w-full justify-between ${
+        isDark ? "bg-slate-800" : "bg-[#fafafa]"
+      } py-6 h-screen`}
+    >
+      <div className="flex flex-col gap-5 w-full">
+        <ul className="flex flex-col gap-8 ">
           {navicons.map((icon, index) => (
             <li
               key={icon.name}
@@ -22,20 +31,14 @@ export default function Sidenav() {
             </li>
           ))}
         </ul>
-        <ul className="flex flex-col gap-6 bg-white py-3 rounded-full w-3/5 mx-auto">
-          {themeicons.map((icon) => (
-            <li
-              key={icon.name}
-              className="mx-auto"
-              title={icon.name}
-            >
-              <button onClick={""} className="p-1 rounded-full bg-[#34CAA5]">
-                <img src={icon.icon} alt="" className="w-6" />
-              </button>
-            </li>
-          ))}
-        </ul>
+
+        <Switcher
+          // isDark={isDark}
+          onThemeChange={onThemeChange}
+          icons={themeicons}
+        />
       </div>
+
       <ul className="flex flex-col gap-8">
         {controlicons.map((icon) => (
           <li key={icon.name} className="mx-auto" title={icon.name}>

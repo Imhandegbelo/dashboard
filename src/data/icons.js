@@ -26,8 +26,10 @@ export const navicons = [
 ];
 
 export const themeicons = [
-  { icon: sun, active: sun_w, name: "Light" },
-  { icon: moon, active: moon_w, name: "Dark" },
+  { icon: sun, active: sun_w, name: "Light", alt: "sun" },
+  { icon: moon, active: moon_w, name: "Dark", alt: "moon" },
+  // { icon: {light: sun, dark:sun_w}, active: sun_w, name: "Light", alt: "sun" },
+  // { icon: {light:moon, dark:moon_w}, active: moon_w, name: "Dark", alt: "moon" },
 ];
 
 export const controlicons = [

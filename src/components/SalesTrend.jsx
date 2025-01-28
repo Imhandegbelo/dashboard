@@ -2,7 +2,7 @@ import { useState } from "react";
 import chevron from "../assets/topnav/chevron.svg";
 import { SalesChart } from "./SalesChart";
 
-export default function SalesTrend() {
+export default function SalesTrend({ isDark }) {
   const [filter, setFilter] = useState("Weekly");
   const [filterOpen, setFilterOpen] = useState(false);
 
@@ -14,29 +14,45 @@ export default function SalesTrend() {
   return (
     <>
       <div
-        className="flex justify-between font-semibold "
+        className={`flex justify-between font-semibold ${
+          isDark ? "text-slate-200" : "text-[#26282C]"
+        }`}
         aria-label="Table of recent orders"
       >
-        <h3 className="text-[#26282C] text-lg">Sales Trends</h3>
+        <h3 className={` text-lg`}>Sales Trends</h3>
         <div className="flex gap-2.5 items-center font-medium">
-          <p className="text-sm text-[#3A3F51]">Sort by:</p>
+          <p
+            className={`text-sm ${
+              isDark ? "text-slate-200" : "text-[#3A3F51]"
+            }`}
+          >
+            Sort by:
+          </p>
           <div className="relative">
             <button
               onClick={() => setFilterOpen(!filterOpen)}
-              className="flex gap-3 items-center text-xs text-[#3A3F51] border py-1.5 px-3 rounded-full"
+              className={`flex gap-3 items-center text-xs ${
+                isDark ? "text-slate-200" : "text-[#3A3F51]"
+              } border py-1.5 px-3 rounded-full`}
             >
               {filter}
               <img src={chevron} alt="" />
             </button>
             {filterOpen && (
-              <div className="absolute w-full rounded-xl bg-white px-3 py-2 shadow-xl">
-                {["Daily", "Weekly", "Monthly", "Yearly"].map((data) => (
+              <div
+                className={`absolute w-full rounded-xl ${
+                  isDark ? "text-slate-200 bg-slate-700" : "bg-white"
+                } px-3 py-2 shadow-xl shadow-white/30 z-30`}
+              >
+                {["Daily", "Weekly", "Monthly", "Yearly"].map((filter) => (
                   <button
-                    key={data}
-                    className="w-full text-left text-xs text-[#3A3F51]"
+                    key={filter}
+                    className={`w-full text-left text-xs ${
+                      isDark ? "text-slate-200" : "text-[#3A3F51]"
+                    }`}
                     onClick={handleSetFilter}
                   >
-                    {data}
+                    {filter}
                   </button>
                 ))}
               </div>
@@ -44,8 +60,8 @@ export default function SalesTrend() {
           </div>
         </div>
       </div>
-      <div className="w-full h-full mt-5">
-        <SalesChart />
+      <div className={`${isDark ? "" : ""} w-full h-full mt-5`}>
+        <SalesChart isDark={isDark} />
       </div>
     </>
   );

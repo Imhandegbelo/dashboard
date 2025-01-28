@@ -89,17 +89,17 @@ export const bardata = {
     },
   ],
 };
-export const linedata = {
-  labels,
-  datasets: [
-    {
-      fill: true,
-      label: "Trend",
-      data: labels.map(() =>
-        Math.floor(Math.random() * (50000 - 5000 + 1) + 5000)
-      ),
-      show: true,
-      backgroundColor: "rgba(52, 202, 165, 1)",
-    },
-  ],
-};
+// export const linedata = {
+//   labels,
+//   datasets: [
+//     {
+//       fill: true,
+//       label: "Trend",
+//       data: labels.map(() =>
+//         Math.floor(Math.random() * (50000 - 5000 + 1) + 5000)
+//       ),
+//       show: true,
+//       backgroundColor: "rgba(52, 202, 165, 1)",
+//     },
+//   ],
+// };

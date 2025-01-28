@@ -1,68 +1,81 @@
 import { memo } from "react";
 import file from "../assets/orders/file.svg";
+import file_w from "../assets/orders/file_w.svg";
+import OrdersModal from "./OrdersModal";
 
-export default memo(function OrderTable({ orders }) {
+export default memo(function OrderTable({ orders, isDark }) {
+  const displayOrderCard = (order) => {
+    return (
+      <div className="absolute w-small h-fit">
+        <p className="text-4xl">How far?</p>
+      </div>
+    );
+  };
+
   return (
-    <div className="pb-5 overflow-y-clip md:h-auto overflow-x-auto">
-      <table className="hidden md:solid w-full mt-4">
-        <thead className="text-[#9CA4AB] text-left">
-          <tr className="border-b">
-            <th className="pb-2">Name</th>
-            <th className="">Date</th>
-            <th>Amount</th>
-            <th>Status</th>
-            <th>Invoice</th>
-          </tr>
-        </thead>
-        <tbody className="text-[#26282C] text-sm">
-          {orders.map((order, index) => (
-            <tr key={index} className="border-b py-2">
-              <td className="flex items-center gap-2 font-medium text-[#3A3F51]">
-                <img
-                  src={order.avatar}
-                  alt=""
-                  className="w-8 h-8 rounded-full my-2"
-                />
-                <span>{order.name}</span>
-              </td>
-              <td className="text-neutral-500">{order.date}</td>
-              <td className="font-medium text-[#0D062D]">{order.amount}</td>
-              <td
-                className={`${
-                  order.status === "Paid" ? "text-[#34CAA5]" : "text-[#ED544E]"
-                }`}
-              >
-                {order.status}
-              </td>
-              <td className="flex items-center gap-2">
-                <img src={file} alt="" className="" />
-                <span className="text-sm text-[#0D062D]">View</span>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      {orders.map((order) => (
-        <div className="rounded-xl bg-white my-2">
-          <div className="flex items-center gap-2 font-medium text-[#3A3F51]">
-            <img
-              src={order.avatar}
-              alt=""
-              className="w-8 h-8 rounded-full my-2"
-            />
-            <span className="text-xl font-semibold">{order.name}</span>
-          </div>
-          <p className="text-neutral-500">{order.date}</p>
-          <p className="font-medium text-[#0D062D] text-2xl">{order.amount}</p>
-          <p
-            className={`${
-              order.status === "Paid" ? "text-[#34CAA5]" : "text-[#ED544E]"
-            }`}
-          >
-            {order.status}
-          </p>
+    <>
+      <div className="flex flex-col divide-y mt-4 overflow-x-auto no-scrollbar">
+        <div
+          className={`flex justify-between ${
+            isDark ? "text-white/90" : "text-[#9CA4AB]"
+          } w-full`}
+        >
+          <p className="basis-3/12">Name</p>
+          <p className="basis-3/12">Date</p>
+          <p className="basis-2/12">Amount</p>
+          <p className="basis-1/12">Status</p>
+          <p className="basis-1/12">Invoice</p>
         </div>
-      ))}
-    </div>
+
+        {orders.map((order, index) => (
+          <div key={index+1} className="flex justify-between items-center py-1">
+            <div className="basis-3/12 flex items-center gap-2 font-medium text-[#3A3F51]">
+              <img
+                src={order.avatar}
+                alt=""
+                className="w-8 h-8 rounded-full my-2"
+              />
+              <span className={`${isDark ? "text-slate-300" : ""}`}>
+                {order.name}
+              </span>
+            </div>
+            <div
+              className={`basis-3/12 ${
+                isDark ? "text-neutral-200" : "text-neutral-500"
+              }`}
+            >
+              {order.date}
+            </div>
+            <div
+              className={`basis-2/12 font-medium ${
+                isDark ? "" : "text-[#0D062D]"
+              }`}
+            >
+              {order.amount}
+            </div>
+            <div
+              className={`basis-1/12 ${
+                order.status === "Paid" ? "text-[#34CAA5]" : "text-[#ED544E]"
+              }`}
+            >
+              {order.status}
+            </div>
+            <button
+              onClick={(order) => displayOrderCard(order)}
+              className="basis-1/12 flex items-center gap-2"
+            >
+              <img src={isDark ? file_w : file} alt="" className="" />
+              <span
+                className={`text-sm ${
+                  isDark ? "" : "text-[#0D062D]"
+                } hover:text-[#34CAA5]`}
+              >
+                View
+              </span>
+            </button>
+          </div>
+        ))}
+      </div>
+    </>
   );
 });

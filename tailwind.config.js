@@ -1,7 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 // import plugin from 'tailwindcss/plugin';
 
-
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -15,14 +14,6 @@ export default {
       },
     },
   },
-  plugins: [
-    // plugin(function ({ addVariant }) {
-    //   addVariant("progress-unfilled", ["&::-webkit-progress-bar", "&"]);
-    //   addVariant("progress-filled", [
-    //     "&::-webkit-progress-value",
-    //     "&::-moz-progress-bar",
-    //     "&",
-    //   ]);
-    // }),
-  ],
+  darkMode: "class",
+  plugins: [],
 };

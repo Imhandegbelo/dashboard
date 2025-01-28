@@ -57,7 +57,6 @@ const CustomTooltip = ({ active, payload }) => {
     return (
       <div className="flex justify-center items-center bg-[#090C2C] dark:bg-black h-[26px] w-[100px] px-4 rounded-md relative">
         <p className="text-xs text-white">{toUSD(value)}</p>
-        <div id="triangle-down" className="fixed -bottom-1"></div>
       </div>
     );
   }
@@ -65,7 +64,7 @@ const CustomTooltip = ({ active, payload }) => {
   return null;
 };
 
-export const SalesChart = () => {
+export const SalesChart = ({ isDark }) => {
   let [barGraphData, setBarGraphData] = React.useState({});
   return (
     <ResponsiveContainer width="100%" height="90%">
@@ -86,13 +85,13 @@ export const SalesChart = () => {
           dataKey="name"
           axisLine={false}
           tickLine={false}
-          className="font-semibold text-sm"
+          className={`font-semibold text-sm ${isDark ? "text-white/90" : ""}`}
         />
 
         <YAxis
           axisLine={false}
           tickLine={false}
-          className="text-xs font-semibold"
+          className={`text-xs font-semibold ${isDark ? "text-white/90" : ""}`}
           ticks={[0, 5000, 10000, 20000, 30000, 40000, 50000]}
           domain={["dataMin", "dataMax"]}
         />

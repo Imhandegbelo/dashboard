@@ -8,7 +8,7 @@ import gaingraph from "../assets/salestrend/gaingraph.svg";
 import lossgraph from "../assets/salestrend/lossgraph.svg";
 
 
-export default function Insight() {
+export default function Insight({isDark}) {
   const data = [
     {
       icon: boxtick,
@@ -40,9 +40,9 @@ export default function Insight() {
     },
   ];
   return (
-    <div className="grid lg:grid-cols-2 overflow-scroll gap-5 h-auto md:h-[374px]">
+    <div className="grid sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 overflow-scroll no-scrollbar gap-5 h-auto md:h-[374px]">
       {data.map((content) => (
-        <div key={content.title} className="rounded-xl bg-white border border-[#EDF2F7] p-4">
+        <div key={content.title} className={`rounded-xl border ${isDark?"bg-slate-700 border-slate-600":"bg-white border-[#EDF2F7]"} p-4`}>
           <div className="flex justify-between items-center">
             <div className="flex items-center justify-center rounded-full p-1.5 border">
               <img src={content.icon} alt="" />
@@ -52,10 +52,10 @@ export default function Insight() {
             </div>
           </div>
           <div className="flex flex-col gap-2">
-            <h3 className="text-lg text-[#898989] font-medium">
+            <h3 className={`text-lg ${isDark?"text-slate-300":"text-[#898989]"} font-medium`}>
               {content.title}
             </h3>
-            <p className="text-2xl text-[#3A3F51] font-semibold">
+            <p className={`text-2xl ${isDark?"text-slate-200":"text-[#3A3F51]"} font-semibold`}>
               {content.count}
             </p>
             <div className="flex justify-between shrink">
@@ -73,7 +73,7 @@ export default function Insight() {
                   {content.growth}
                 </span>
               </div>
-              <span className="text-sm">vs. previous month</span>
+              <span className={`text-sm ${isDark?"text-slate-300":""}`}>vs. previous month</span>
             </div>
           </div>
         </div>
